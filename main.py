@@ -24,16 +24,15 @@ image = image.resize((SCREENHEIGHT // cellWidth, SCREENHEIGHT // cellWidth), Ima
 image_array = np.array(image)
 
 movingCell = MovingCell(cellWidth, (0, 0), (0, 0, 0), SCREENHEIGHT)
+mainMenu = MainMenu("main menu", screen)
 
 while True:
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
-
     screen.fill((255, 255, 255))
 
-    movingCell.draw(screen)
-    movingCell.control()
+    mainMenu.runnable.run()
 
     pygame.display.update()
     FramePerSec.tick(FPS)
